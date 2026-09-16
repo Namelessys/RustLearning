@@ -1,5 +1,7 @@
-mod player;
+pub mod entity;
+pub mod player;
 use player::Player;
+use entity::HasName;
 
 struct Game {
 	player: Player,

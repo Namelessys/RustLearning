@@ -1,22 +1,22 @@
+use super::entity::{Entity, HasEntity};
+
 pub struct Player {
-	name: String,
+	entity: Entity,
 }
 
 impl Player {
 	pub fn new(name: &str) -> Self {
 		Self {
-			name: name.to_string(),
+			entity: Entity::new(name),
 		}
 	}
-	
-	pub fn greet(&self) {
-		println!("Hello, i am {}", self.name);
+}
+
+impl HasEntity for Player {
+	fn entity(&self) -> &Entity {
+		&self.entity
 	}
-	
-	pub fn name_set(&mut self, name: &str) {
-		self.name = name.to_string();
-	}
-	pub fn _name_get(&self) -> &String {
-		&self.name
+	fn entity_mut(&mut self) -> &mut Entity {
+		&mut self.entity
 	}
 }
