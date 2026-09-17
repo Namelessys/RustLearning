@@ -27,9 +27,9 @@ impl Game {
 	}
 }
 
-pub fn main() {
+pub fn run() {
 	let mut game = init();
-	run(&mut game);
+	main_loop(&mut game);
 }
 
 fn init() -> Game {
@@ -38,7 +38,7 @@ fn init() -> Game {
 	game
 }
 
-fn run(game: &mut Game) {
+fn main_loop(game: &mut Game) {
 	game.player.greet();
 	game.player.name_set("Test2");
 	game.player.greet();

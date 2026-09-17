@@ -4,5 +4,5 @@ mod game;
 fn main() {
 	test::test();
 	
-	game::main();
+	game::run();
 }
