@@ -1,4 +1,4 @@
-use super::entity::{Entity, HasEntity};
+use super::entity::{Entity, HasEntity, impl_entity};
 
 pub struct Player {
 	entity: Entity,
@@ -12,11 +12,4 @@ impl Player {
 	}
 }
 
-impl HasEntity for Player {
-	fn entity(&self) -> &Entity {
-		&self.entity
-	}
-	fn entity_mut(&mut self) -> &mut Entity {
-		&mut self.entity
-	}
-}
+impl_entity!(Player, entity);
