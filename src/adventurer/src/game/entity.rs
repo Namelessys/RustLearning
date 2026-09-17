@@ -1,13 +1,16 @@
-use super::has_name::HasName;
+use super::traits::{
+	Name, HasName, impl_has_name_via,
+	Greeter,
+};
 
 pub struct Entity {
-	name: String,
+	pub name: Name,
 }
 
 impl Entity {
 	pub fn new(name: &str) -> Self {
 		Self {
-			name: name.to_string(),
+			name: Name::new(name),
 		}
 	}
 }
@@ -38,12 +41,10 @@ impl HasEntity for Entity {
 	}
 }
 
-impl<T: HasEntity> HasName for T {
-	fn name(&self) -> &str {
-		&self.entity().name
-	}
-	fn name_mut(&mut self) -> &mut String {
-		&mut self.entity_mut().name
+impl_has_name_via!(Entity, name);
+
+impl Greeter for Entity {
+	fn greet(&self) {
+		println!("Entity: {}", self.name());
 	}
 }
-
