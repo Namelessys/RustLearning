@@ -1,6 +1,6 @@
-pub mod entity;
-pub mod player;
-pub mod has_name;
+mod entity;
+mod player;
+mod has_name;
 
 use player::Player;
 use has_name::HasName;
